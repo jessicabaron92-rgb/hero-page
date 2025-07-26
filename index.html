@@ -7,27 +7,22 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .bg-custom-yellow { background-color: #EBD18D; }
-    .toggle input:checked + .slider::before {
-      transform: translateX(24px);
-    }
-    .slider::before {
-      content: "🌙";
-    }
+    .dark .bg-custom-yellow { background-color: #3b3b3b; }
   </style>
 </head>
-<body class="bg-[#1e1e1e] text-black transition-colors duration-300" id="body">
+<body class="bg-white dark:bg-[#1e1e1e] text-black dark:text-white font-sans transition-colors duration-300" id="body">
 
   <!-- Toggle Switch -->
   <div class="absolute top-4 right-4 flex items-center space-x-2">
-    <label class="relative inline-block w-12 h-6 toggle">
+    <label class="relative inline-block w-12 h-6">
       <input type="checkbox" class="opacity-0 w-0 h-0" onclick="toggleTheme()" />
-      <span class="slider absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 rounded-full transition duration-300 before:absolute before:content-['🌙'] before:flex before:justify-center before:items-center before:text-xs before:text-gray-700 before:h-4.5 before:w-4.5 before:left-1 before:bottom-1 before:bg-white before:rounded-full before:transition"></span>
+      <span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 rounded-full transition duration-300 before:absolute before:content-['🌙'] before:flex before:justify-center before:items-center before:text-xs before:text-gray-700 before:h-4.5 before:w-4.5 before:left-1 before:bottom-1 before:bg-white before:rounded-full before:transition"></span>
     </label>
   </div>
 
   <!-- Card Section -->
-  <div class="flex items-center justify-center min-h-screen">
-    <div class="bg-custom-yellow p-6 rounded-2xl w-80 text-black">
+  <div class="flex items-center justify-center min-h-screen px-4">
+    <div class="bg-custom-yellow p-6 rounded-2xl w-80 text-black dark:text-white transition-colors duration-300">
       <!-- Top Row -->
       <div class="flex justify-between items-center">
         <div class="flex items-center space-x-[-10px]">
@@ -39,7 +34,7 @@
             <img src="https://cdn-icons-png.flaticon.com/512/2922/2922561.png" class="w-full h-full" />
           </div>
         </div>
-        <div class="w-8 h-8 bg-white/30 rounded-full flex items-center justify-center cursor-pointer">
+        <div class="w-8 h-8 bg-white/30 dark:bg-white/10 rounded-full flex items-center justify-center cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
             <circle cx="12" cy="5" r="2"/>
             <circle cx="12" cy="12" r="2"/>
@@ -57,8 +52,8 @@
       <!-- Progress -->
       <div class="mt-10 text-sm font-medium">
         135 Works / 45%
-        <div class="mt-2 w-full h-1 bg-black/30 rounded-full">
-          <div class="h-1 bg-black w-[45%] rounded-full"></div>
+        <div class="mt-2 w-full h-1 bg-black/30 dark:bg-white/20 rounded-full">
+          <div class="h-1 bg-black dark:bg-white w-[45%] rounded-full"></div>
         </div>
       </div>
     </div>
@@ -66,15 +61,7 @@
 
   <script>
     function toggleTheme() {
-      const body = document.getElementById('body');
-      const isDark = body.classList.contains('bg-[#1e1e1e]');
-      if (isDark) {
-        body.classList.remove('bg-[#1e1e1e]');
-        body.classList.add('bg-white');
-      } else {
-        body.classList.add('bg-[#1e1e1e]');
-        body.classList.remove('bg-white');
-      }
+      document.documentElement.classList.toggle('dark');
     }
   </script>
 
