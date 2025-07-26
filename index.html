@@ -27,10 +27,19 @@
       background-color: var(--body-bg);
       font-family: system-ui, sans-serif;
       margin: 0;
-      padding: 40px;
+      padding: 0;
     }
 
-    /* Toggle Switch Style */
+    .page-wrapper {
+      height: 100vh;
+      width: 100vw;
+      background-color: var(--body-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
     .toggle-theme-container {
       position: absolute;
       top: 20px;
@@ -53,25 +62,3 @@
       position: absolute;
       cursor: pointer;
       top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      border-radius: 34px;
-      transition: 0.4s;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "🌙";
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 14px;
-      color: #666;
-      height: 18px;
-      width: 18px;
-      left: 4px;
-      bottom: 3.5px;
-      background-color: white;
-      transition:
