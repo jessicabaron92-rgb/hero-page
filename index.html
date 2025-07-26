@@ -1,165 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jessica's Web Design</title>
-  <style>
-    body {
-      background: #e8e8e8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jessica's Web Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class' };
+    </script>
+    <style>
+      .bg-card { background-color: #ebd18d; }
+      .dark .bg-card { background-color: #3b3b3b; }
+    </style>
+  </head>
+  <body class="bg-[#2695ba] dark:bg-[#1a1a1a] min-h-screen flex items-center justify-center transition-colors duration-300">
+    <!-- Toggle -->
+    <div class="absolute top-5 right-5 flex items-center text-white dark:text-gray-300">
+      <span class="mr-2">🌙</span>
+      <label class="relative inline-block w-12 h-6">
+        <input type="checkbox" onclick="toggleTheme()" class="opacity-0 w-0 h-0 peer" />
+        <span class="absolute inset-0 bg-gray-300 rounded-full transition peer-checked:bg-gray-600"></span>
+        <span class="absolute left-1 top-1 h-4 w-4 bg-white rounded-full transition peer-checked:translate-x-6"></span>
+      </label>
+    </div>
 
-    .card {
-      --main-color: #000;
-      --bg-color: #EBD18D;
-      width: 300px;
-      padding: 25px;
-      background: var(--bg-color);
-      border-radius: 20px;
-    }
-
-    .card__wrapper {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .card___wrapper-acounts {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      z-index: 1;
-      cursor: pointer;
-    }
-
-    .card___wrapper-acounts > div:nth-child(2) {
-      position: absolute;
-      left: 25px;
-      z-index: -1;
-    }
-
-    .card___wrapper-acounts > div:nth-child(3) {
-      position: absolute;
-      left: 50px;
-      z-index: -2;
-    }
-
-    .card__score {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 500;
-      font-size: 16px;
-      color: #fff;
-      width: 40px;
-      height: 40px;
-      border-radius: 100%;
-      background: var(--main-color);
-    }
-
-    .card__acounts {
-      width: 42px;
-      height: 42px;
-    }
-
-    .card__acounts svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .card__menu {
-      width: 40px;
-      height: 40px;
-      background: #F6DB96;
-      border-radius: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .card__title {
-      margin-top: 50px;
-      font-weight: 900;
-      font-size: 25px;
-      color: var(--main-color);
-    }
-
-    .card__subtitle {
-      margin-top: 15px;
-      font-weight: 400;
-      font-size: 15px;
-      color: var(--main-color);
-    }
-
-    .card__indicator {
-      margin-top: 50px;
-      font-weight: 500;
-      font-size: 14px;
-      color: var(--main-color);
-    }
-
-    .card__progress progress {
-      width: 100%;
-      height: 4px;
-      border-radius: 100px;
-    }
-
-    .card__progress progress::-webkit-progress-bar {
-      background-color: #00000030;
-      border-radius: 100px;
-    }
-
-    .card__progress progress::-webkit-progress-value {
-      background-color: var(--main-color);
-      border-radius: 100px;
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <div class="card__wrapper">
-      <div class="card___wrapper-acounts">
-        <div class="card__score">+3</div>
-        <div class="card__acounts">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-            <circle r="60" fill="#ffd8c9" cy="64" cx="64"/>
-          </svg>
+    <!-- Card -->
+    <div class="bg-card p-6 rounded-2xl w-80 shadow-md text-black dark:text-white transition-colors duration-300">
+      <div class="flex justify-between items-center">
+        <div class="relative flex items-center">
+          <div class="w-10 h-10 rounded-full bg-black text-white z-10 flex items-center justify-center text-sm">+3</div>
+          <div class="w-10 h-10 rounded-full bg-[#ffd8c9] absolute left-6"></div>
+          <div class="w-10 h-10 rounded-full bg-[#ff8475] absolute left-12"></div>
         </div>
-        <div class="card__acounts">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-            <circle r="60" fill="#ff8475" cy="64" cx="64"/>
+        <div class="w-8 h-8 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="4" height="20" viewBox="0 0 4 20" fill="currentColor">
+            <circle cx="2" cy="2" r="2" />
+            <circle cx="2" cy="10" r="2" />
+            <circle cx="2" cy="18" r="2" />
           </svg>
         </div>
       </div>
-      <div class="card__menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="4" viewBox="0 0 4 20" height="20" fill="none">
-          <g fill="#000">
-            <path d="m2 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-            <path d="m2 12c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-            <path d="m2 20c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-          </g>
-        </svg>
+      <h2 class="mt-10 font-extrabold text-xl">Jessica's Web Design</h2>
+      <p class="mt-3 text-sm">This is just the start.</p>
+      <div class="mt-8 text-sm font-medium">
+        135 Works / 45%
+        <div class="mt-2 h-1 bg-black/20 dark:bg-white/20 rounded-full overflow-hidden">
+          <div class="h-full bg-black dark:bg-white w-[45%]"></div>
+        </div>
       </div>
     </div>
 
-    <div class="card__title">Jessica's Web Design</div>
-    <div class="card__subtitle">This is just the start.</div>
-    <div class="card__indicator">
-      <span class="card__indicator-amount">135</span> Works /
-      <span class="card__indicator-percentage">45%</span>
-    </div>
-    <div class="card__progress">
-      <progress max="100" value="40"></progress>
-    </div>
-  </div>
-</body>
+    <script>
+      function toggleTheme() {
+        document.documentElement.classList.toggle('dark');
+      }
+    </script>
+  </body>
 </html>
