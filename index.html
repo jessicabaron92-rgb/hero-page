@@ -2,111 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jessica's Web Design</title>
   <style>
-    :root {
-      --main-color: #000;
-      --bg-color: #EBD18D;
-      --text-color: #000;
-      --progress-bg: #00000030;
-      --progress-fill: #000;
-      --card-bg: #EBD18D;
-      --body-bg: #2695ba;
-    }
-
-    body.dark {
-      --main-color: #fff;
-      --text-color: #fff;
-      --progress-bg: #ffffff30;
-      --progress-fill: #fff;
-      --card-bg: #3b3b3b;
-      --body-bg: #1a1a1a;
-    }
-
     body {
-      background-color: var(--body-bg);
-      font-family: system-ui, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .page-wrapper {
+      background: #e8e8e8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
-      width: 100vw;
-      background-color: var(--body-bg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .toggle-theme-container {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      color: #fff;
-      font-weight: bold;
-    }
-
-    .toggle-switch {
-      position: relative;
-      width: 50px;
-      height: 25px;
-      margin-left: 8px;
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      border-radius: 34px;
-      transition: 0.4s;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "🌙";
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 14px;
-      color: #666;
-      height: 18px;
-      width: 18px;
-      left: 4px;
-      bottom: 3.5px;
-      background-color: white;
-      transition: 0.4s;
-      border-radius: 50%;
-    }
-
-    input:checked + .slider {
-      background-color: #666;
-    }
-
-    input:checked + .slider:before {
-      transform: translateX(24px);
-      color: #000;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     .card {
+      --main-color: #000;
+      --bg-color: #EBD18D;
       width: 300px;
       padding: 25px;
-      background: var(--card-bg);
+      background: var(--bg-color);
       border-radius: 20px;
-      color: var(--text-color);
     }
 
     .card__wrapper {
@@ -163,7 +78,7 @@
     .card__menu {
       width: 40px;
       height: 40px;
-      background: rgba(0, 0, 0, 0.05);
+      background: #F6DB96;
       border-radius: 100%;
       display: flex;
       align-items: center;
@@ -199,43 +114,52 @@
     }
 
     .card__progress progress::-webkit-progress-bar {
-      background-color: var(--progress-bg);
+      background-color: #00000030;
       border-radius: 100px;
     }
 
     .card__progress progress::-webkit-progress-value {
-      background-color: var(--progress-fill);
+      background-color: var(--main-color);
       border-radius: 100px;
     }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="toggle-theme-container">
-      #2695ba
-      <label class="toggle-switch">
-        <input type="checkbox" onclick="toggleTheme()" id="themeToggle">
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <div class="card">
-      <div class="card__wrapper">
-        <div class="card___wrapper-acounts">
-          <div class="card__score">+3</div>
-          <div class="card__acounts"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><circle r="60" fill="#ffd8c9" cy="64" cx="64"/></svg></div>
-          <div class="card__acounts"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><circle r="60" fill="#ff8475" cy="64" cx="64"/></svg></div>
+  <div class="card">
+    <div class="card__wrapper">
+      <div class="card___wrapper-acounts">
+        <div class="card__score">+3</div>
+        <div class="card__acounts">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+            <circle r="60" fill="#ffd8c9" cy="64" cx="64"/>
+          </svg>
         </div>
-        <div class="card__menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="4" viewBox="0 0 4 20" height="20" fill="none">
-            <g fill="#000">
-              <path d="m2 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-              <path d="m2 12c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-              <path d="m2 20c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-            </g>
+        <div class="card__acounts">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+            <circle r="60" fill="#ff8475" cy="64" cx="64"/>
           </svg>
         </div>
       </div>
+      <div class="card__menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="4" viewBox="0 0 4 20" height="20" fill="none">
+          <g fill="#000">
+            <path d="m2 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+            <path d="m2 12c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+            <path d="m2 20c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
 
-      <div class="card__title">Jessica's Web Design</div>
-      <div class
+    <div class="card__title">Jessica's Web Design</div>
+    <div class="card__subtitle">This is just the start.</div>
+    <div class="card__indicator">
+      <span class="card__indicator-amount">135</span> Works /
+      <span class="card__indicator-percentage">45%</span>
+    </div>
+    <div class="card__progress">
+      <progress max="100" value="40"></progress>
+    </div>
+  </div>
+</body>
+</html>
